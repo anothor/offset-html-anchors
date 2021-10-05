@@ -28,3 +28,14 @@ A typical scenario is the anchor tag in the header. Just by providing the absolu
 <!-- instead of  -->
 <a href="#contact">Contact</a>
 <!-- which could only locate the id of section on the same page -->
+
+<script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            })
+        });
+    });
+</script>
